@@ -1,0 +1,13 @@
+html, body, .App{
+    height: 100vh;
+}
+.mBody{
+    margin: auto;
+    width: 75%;
+    background-color: white;
+    height: 100vh;
+    border-left-style: hidden;
+    border-right-style: hidden;
+    border-radius: 1%;
+    position: relative;
+}

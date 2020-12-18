@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@keyframes WrongInput{
+    from {background-color:white;}
+    to {background-color: red;}
+}
+
+@keyframes CorrectInput{
+    from {background-color: white;}
+    to {background-color: green;}
+}
+
+#pArea{
+    text-align: center;
+    padding-top: 50px;
+}
+
+#userInput{
+    border: none;
+    border-bottom: 2px solid blue;
+    width: 75vh;
+    margin-top: 45px;
+    height: 3em;
+    font-size: 200%;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.cClass{
+    animation-name: CorrectInput;
+    animation-duration: 0.5s;
+}
+.wClass{
+    animation-name: WrongInput;
+    animation-duration: 0.5s;
+}
+
+.timer{
+    padding-top: 25px;
+    font-size: 3.5em;
+}

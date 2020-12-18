@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+    background-color: #45C0FE;
+}
+.bTitle{
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: 300%;
+}
+.mainButtons{
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 250%;
+    padding: 25px 150px;
+    margin-bottom: 50px;
+    display: block;
+}
+.M1{
+    position: relative;
+}
+.content{
+    top: 250px;
+    position: relative;
+    text-align: center;
+    margin-top: 10%;
+}
