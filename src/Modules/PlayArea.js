@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import RW from './word';
-import {GD} from './Def';
+import {GetWord} from './Def';
 import WordDisplay from './DisplayW';
 import PInput from './PlayerInput';
 import {Spring} from 'react-spring/renderprops';
@@ -9,12 +9,12 @@ import '../styler/input.css'
 export class PlayArea extends Component {
     state = {
         WordInfo: null,
-        Word: "T",
-        Timer: 0,
-        Start: false,
+        Word: "T"
+        //Timer: 0
     }
     correct = [];
     skipped = [];
+    Timer = 0;
     componentDidMount(){
         // let w = RW.GenerateWord();
         // GD.GDef(w).then((res) =>{
@@ -23,10 +23,10 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.state.Timer > 60){
+            if (this.Timer > 60){
                 this.props.Finish();
             }
-            this.state.Timer = this.state.Timer + 1;
+            this.Timer = this.Timer + 1;
         }, 1000);
     }
 
@@ -57,7 +57,7 @@ export class PlayArea extends Component {
         //  })
         //  console.log(this.state.Word);
         let w = RW.GenerateWord();
-        GD.GetWord(w).then((res) =>{
+        GetWord(w).then((res) =>{
             this.setState({WordInfo: res, Word: w});
             console.log(res);
         });

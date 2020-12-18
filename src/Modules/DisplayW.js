@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styler/dStyler.css'
-import Spring from 'react-spring/renderprops'
 
 export default function DisplayW(props) {
     // var x = [];

@@ -18,9 +18,7 @@
 import React, { Component } from 'react'
 import './styler/bStyle.css';
 import Meat1 from './Modules/Meat1';
-import Instruc from './Modules/instruc';
-import MenuDisplay from './Modules/Menu';
-import { Spring, Transition, animated} from 'react-spring/renderprops';
+import { Spring } from 'react-spring/renderprops';
 
 export class App extends Component {
   state = {

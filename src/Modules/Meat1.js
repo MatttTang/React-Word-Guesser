@@ -5,11 +5,12 @@ import Instructions from './instruc';
 
 
 class Meat1 extends React.Component{
-    state = {
-        WCorrect: [],
-        WSkip: []
-    }
-
+    // state = {
+    //     WCorrect: [],
+    //     WSkip: []
+    // }
+    WCorrect = [];
+    WSkip = [];
     // componentDidMount(){
     //     let w = RW.GenerateWord();
     //     GD.GDef(w).then((res) =>{
@@ -40,10 +41,10 @@ class Meat1 extends React.Component{
     }
 
     LiftWords(wc, ws){
-        this.state.WCorrect = wc;
-        this.state.WSkip = ws;
+        this.WCorrect = wc;
+        this.WSkip = ws;
         this.forceUpdate();
-        console.log(this.state.WCorrect);
+        console.log(this.WCorrect);
     }
 
     render(){
@@ -119,16 +120,16 @@ class Meat1 extends React.Component{
         else if (this.props.showEnd){
             return(
                 <div>
-                    {React.createElement('h1', null, `Words Correct: ${this.state.WCorrect.length}`)}
+                    {React.createElement('h1', null, `Words Correct: ${this.WCorrect.length}`)}
                     <ul>
-                        {this.state.WCorrect.map(item =>
+                        {this.WCorrect.map(item =>
                             <li key="{item}">{item}</li>)
                         }
                     </ul>
 
-                    {React.createElement('h1', null, `Words Skipped: ${this.state.WSkip.length}`)}
+                    {React.createElement('h1', null, `Words Skipped: ${this.WSkip.length}`)}
                     <ul>
-                        {this.state.WSkip.map(item =>
+                        {this.WSkip.map(item =>
                             <li key={item}>{item}</li>)
                         }
                     </ul>
