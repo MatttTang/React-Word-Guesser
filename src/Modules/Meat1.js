@@ -1,9 +1,5 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
-import RW from './word';
-import GD, { GDef } from './Def';
-import WordDisplay from './DisplayW';
-import PInput from './PlayerInput';
 import PArea from './PlayArea';
 import Instructions from './instruc';
 

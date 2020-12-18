@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import RW from './word';
-import GD, { GDef } from './Def';
+import {GD} from './Def';
 import WordDisplay from './DisplayW';
 import PInput from './PlayerInput';
 import {Spring} from 'react-spring/renderprops';
-import ReactDom from 'react-dom';
 import '../styler/input.css'
 
 export class PlayArea extends Component {
