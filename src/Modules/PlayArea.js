@@ -23,7 +23,7 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.Timer > 10){
+            if (this.Timer > 60){
                 this.props.Finish();
             }
             this.Timer = this.Timer + 1;
