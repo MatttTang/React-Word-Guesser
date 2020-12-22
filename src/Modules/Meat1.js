@@ -2,6 +2,7 @@ import React from 'react';
 import { Spring } from 'react-spring/renderprops';
 import PArea from './PlayArea';
 import Instructions from './instruc';
+import EndGame from './EndGame';
 
 
 class Meat1 extends React.Component{
@@ -64,6 +65,9 @@ class Meat1 extends React.Component{
                                     <button className="mainButtons" onClick={this.props.iToggle}>
                                         Instuctions
                                     </button>
+                                    <button className="mainButtons" onClick={this.props.sToggle}>
+                                        Secret Move
+                                    </button>
                                 </div>
                             )}
                         </Spring>
@@ -120,7 +124,8 @@ class Meat1 extends React.Component{
         else if (this.props.showEnd){
             return(
                 <div>
-                    {React.createElement('h1', null, `Words Correct: ${this.WCorrect.length}`)}
+                    <EndGame Correct={this.WCorrect} Skip={this.WSkip} />
+                    {/* {React.createElement('h1', null, `Words Correct: ${this.WCorrect.length}`)}
                     <ul>
                         {this.WCorrect.map(item =>
                             <li key="{item}">{item}</li>)
@@ -132,7 +137,10 @@ class Meat1 extends React.Component{
                         {this.WSkip.map(item =>
                             <li key={item}>{item}</li>)
                         }
-                    </ul>
+                    </ul> */}
+                    <button className="mainButtons" onClick={this.props.rToggle}>
+                        Return
+                    </button>
                 </div>
             )
         }

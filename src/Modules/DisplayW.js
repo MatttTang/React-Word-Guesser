@@ -15,7 +15,7 @@ export default function DisplayW(props) {
         for (let index = 0; index < props.Info.length; index++){
             if (props.Info[index].shortdef.length >= 1){
                 for (let j = 0; j < Math.min(props.Info[index].shortdef.length, 3); j++){
-                    x.push(React.createElement("p", null, `${props.Info[index].shortdef[j]}`));
+                    x.push(React.createElement("p", {key: j}, `${props.Info[index].shortdef[j]}`));
                 }
                 pSpeech = props.Info[index].fl;
                 break;

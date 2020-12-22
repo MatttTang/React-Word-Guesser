@@ -25,7 +25,8 @@ export class App extends Component {
     showMenu: true,
     showInstruc: false,
     showP: false,
-    showEnd: false
+    showEnd: false,
+    showShleep: false
   }
 
   iToggle = e =>{
@@ -38,7 +39,14 @@ export class App extends Component {
   pToggle = e =>{
     this.setState({
       showMenu: !this.state.showMenu,
-      showP: !this.state.showP
+      showP: !this.state.showP,
+    });
+  }
+
+  sToggle = e=>{
+    this.setState({
+      showMenu: !this.state.showMenu,
+      showShleep: !this.state.showShleep
     });
   }
 
@@ -49,8 +57,21 @@ export class App extends Component {
     });
   }
 
+  resetToggle = e => {
+    this.setState({
+      showP: false,
+      showEnd: false,
+      showInstruc: false,
+      showMenu: true
+    });
+  }
+
   render() {
     document.title = "Word Test";
+    console.log(`Show End: ${this.state.showEnd}`)
+    console.log(`Show Play: ${this.state.showP}`)
+    console.log(`Show Menu: ${this.state.showMenu}`)
+    console.log(`Show Instruc: ${this.state.showInstruc}`)
     return (
       <div className="App">
         <h1 className="bTitle">
@@ -64,7 +85,7 @@ export class App extends Component {
         >
           {props => (
             <div className="mBody" style={props}>
-              <Meat1 sPlay={this.state.showP} sMenu={this.state.showMenu} sInstruc={this.state.showInstruc} showEnd={this.state.showEnd} iToggle={this.iToggle} pToggle={this.pToggle} eToggle={this.endToggle}/>
+              <Meat1 sSleep={this.state.showShleep} sPlay={this.state.showP} sMenu={this.state.showMenu} sInstruc={this.state.showInstruc} showEnd={this.state.showEnd} rToggle={this.resetToggle} iToggle={this.iToggle} pToggle={this.pToggle} eToggle={this.endToggle} sToggle={this.sToggle} />
             </div>
           )}
         </Spring>
