@@ -17,8 +17,12 @@
 // export default App;
 import React, { Component } from 'react'
 import './styler/bStyle.css';
-import Meat1 from './Modules/Meat1';
-import { Spring } from 'react-spring/renderprops';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
+import Menu from './Modules/Menu';
+import Instructions from './Modules/instruc';
+import PlayArea from './Modules/PlayArea';
+import EndGame from './Modules/EndGame';
+import { motion } from 'framer-motion';
 
 export class App extends Component {
   state = {
@@ -68,15 +72,15 @@ export class App extends Component {
 
   render() {
     document.title = "Word Test";
-    console.log(`Show End: ${this.state.showEnd}`)
-    console.log(`Show Play: ${this.state.showP}`)
-    console.log(`Show Menu: ${this.state.showMenu}`)
-    console.log(`Show Instruc: ${this.state.showInstruc}`)
     return (
-      <div className="App">
-        <h1 className="bTitle">
-            Welcome To The Word Guesser
-        </h1>
+      <Router>
+        <div className="App">
+          <motion.h1 className="bTitle"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}>
+              Welcome To The Word Guesser
+          </motion.h1>
+        {/*}
 
         <Spring
           from={{opacity: 0, marginTop: -500}}
@@ -88,8 +92,20 @@ export class App extends Component {
               <Meat1 sSleep={this.state.showShleep} sPlay={this.state.showP} sMenu={this.state.showMenu} sInstruc={this.state.showInstruc} showEnd={this.state.showEnd} rToggle={this.resetToggle} iToggle={this.iToggle} pToggle={this.pToggle} eToggle={this.endToggle} sToggle={this.sToggle} />
             </div>
           )}
-        </Spring>
-      </div>
+        </Spring> */}
+          <motion.div className="mBody"
+            initial={{y: -500, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{duration: 0.5}}>
+            <Switch>
+              <Route exact path="/" component={Menu} />
+              <Route exact path="/Instructions" component={Instructions} />
+              <Route exact path="/Play" component={PlayArea} />
+              <Route exact path="/End" component={EndGame} />
+            </Switch>
+          </motion.div>
+        </div>
+      </Router>
     );
   }
 }

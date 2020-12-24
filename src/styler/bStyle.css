@@ -11,3 +11,6 @@ html, body, .App{
     border-radius: 1%;
     position: relative;
 }
+a{
+    text-decoration: none;
+}

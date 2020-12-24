@@ -3,8 +3,10 @@ import RW from './word';
 import {GetWord} from './Def';
 import WordDisplay from './DisplayW';
 import PInput from './PlayerInput';
-import {Spring} from 'react-spring/renderprops';
 import '../styler/input.css'
+import {Redirect} from 'react-router-dom';
+import { motion } from 'framer-motion';
+import Time from './Timer';
 
 export class PlayArea extends Component {
     state = {
@@ -23,8 +25,12 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.Timer > 60){
-                this.props.Finish();
+            if (this.Timer === 60){
+                //this.props.Finish();
+                console.log('hello');
+                localStorage.setItem('Correct', this.correct);
+                localStorage.setItem('Skip', this.skipped);
+                this.forceUpdate();
             }
             this.Timer = this.Timer + 1;
         }, 1000);
@@ -45,10 +51,9 @@ export class PlayArea extends Component {
 
     componentWillUnmount(){
         console.log('Finished');
-        console.log(this.correct);
-        console.log(this.skipped);
-        this.props.LiftWords(this.correct, this.skipped);
+        //this.props.LiftWords(this.correct, this.skipped);
         clearInterval(this.interval);
+        //return <Redirect to='/'/>
     }
 
     GenerateNewWord(){
@@ -65,9 +70,17 @@ export class PlayArea extends Component {
     }
 
     render() {
+        if (this.Timer === 60){
+            console.log('test');
+            return <Redirect to={{pathname: "/End"}}/>
+        }
         return (
             <div id="pArea">
-                <Spring
+                <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}>
+                    <WordDisplay Info={this.state.WordInfo} />
+                {/* <Spring
                     from={{marginLeft: -500, opacity: 0}}
                     to={{marginLeft: 0, opacity: 1}}
                 >
@@ -76,10 +89,11 @@ export class PlayArea extends Component {
                             <WordDisplay Info={this.state.WordInfo} />
                         </div>
                     )}
-                </Spring>
+                </Spring> */}
+                </motion.div>
                 {/* <WordDisplay Info={this.state.WordInfo} /> */}
                 <PInput TrueWord={this.state.Word} NewWord={() => this.GenerateNewWord()} Correct={(word) => this.AddCorrect(word)} Skip={(word) => this.Skip(word)}/>
-                <Spring
+                {/* <Spring
                     from={{ number: 0, color: 'black'}}
                     to={{ number: 60, color: 'red'}}
                     config={{duration: 60000}}
@@ -89,7 +103,8 @@ export class PlayArea extends Component {
                             <h3 style={props}>{props.number.toFixed(0)}</h3>
                         </div>
                     )}
-                </Spring>
+                </Spring> */}
+                <Time />
             </div>
 
         )

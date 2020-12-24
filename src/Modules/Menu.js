@@ -1,18 +1,28 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-export default function Menu(props) {
-    if (props.showMen){
-        return(
-            <div>
-                <h1>Menu</h1>
+export default function Menu() {
+    return(
+        <motion.div className="M1"
+            initial={{x: -800}}
+            animate={{x: 0}}
+            transition={{duration: 1}}>
+            <div className="content">
+                <Link to='/Play'>
+                    <button className="mainButtons">
+                        Play
+                    </button>
+                </Link>
+                <Link to="/Instructions">
+                    <button className="mainButtons">
+                        Instuctions
+                    </button>
+                </Link>
+                <button className="mainButtons">
+                    Secret Move
+                </button>
             </div>
-        )
-    }
-    else{
-        return(
-            <div>
-                <h1>game</h1>
-            </div>
-        )
-    }
+        </motion.div>
+    )
 }
