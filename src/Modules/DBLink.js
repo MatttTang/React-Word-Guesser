@@ -1,5 +1,8 @@
 var AWS = require('aws-sdk');
 
+const AK = process.env.AK;
+const SAK = process.env.SAK;
+
 export class DBLink {
     docClient = null;
     constructor(){
@@ -7,8 +10,8 @@ export class DBLink {
         AWS.config.update({
             region: "us-west-2",
             endpoint: "https://dynamodb.us-west-2.amazonaws.com",
-            accessKeyId: "AKIA5IDC47PMWLKMNFP7",
-            secretAccessKey: "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"
+            accessKeyId: AK,
+            secretAccessKey: SAK
         });
         this.docClient = new AWS.DynamoDB.DocumentClient();
     }
