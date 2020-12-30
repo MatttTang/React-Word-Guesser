@@ -73,6 +73,7 @@ export class App extends Component {
   }
 
   render() {
+    {console.log(process.env.AK)}
     return (
       <Router>
         <div className="App">
