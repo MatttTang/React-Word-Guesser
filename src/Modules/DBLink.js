@@ -1,8 +1,5 @@
 var AWS = require('aws-sdk');
 
-const AK = process.env.AK;
-const SAK = process.env.SAK;
-
 export class DBLink {
     docClient = null;
     constructor(){
