@@ -7,17 +7,22 @@ import '../styler/input.css'
 import {Redirect} from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Time from './Timer';
+import {FetchScores} from './FScore';
+import {DBLink} from './DBLink';
 
 export class PlayArea extends Component {
     state = {
         WordInfo: null,
-        Word: "T"
+        Word: "T",
+        LowScore: 0
         //Timer: 0
     }
     correct = [];
     skipped = [];
     Timer = 0;
     componentDidMount(){
+        let x = new DBLink();
+        FetchScores(x).then(ret => this.setState({LowScore: ret.Items[ret.Items.length - 1].correct}));
         // let w = RW.GenerateWord();
         // GD.GDef(w).then((res) =>{
         //     this.setState({WordInfo: res, Word: w});
@@ -25,16 +30,14 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.Timer === 60){
+            if (this.Timer > 60){
                 //this.props.Finish();
-                console.log('hello');
-                localStorage.setItem('Correct', this.correct);
-                localStorage.setItem('Skip', this.skipped);
+                // localStorage.setItem('Correct', this.correct);
+                // localStorage.setItem('Skip', this.skipped);
                 this.forceUpdate();
             }
             this.Timer = this.Timer + 1;
         }, 1000);
-        console.log(this.Timer);
     }
 
     AddCorrect(word){
@@ -51,6 +54,9 @@ export class PlayArea extends Component {
 
     componentWillUnmount(){
         console.log('Finished');
+        localStorage.setItem('Correct', this.correct);
+        localStorage.setItem('Skip', this.skipped);
+        console.log('set storage');
         //this.props.LiftWords(this.correct, this.skipped);
         clearInterval(this.interval);
         //return <Redirect to='/'/>
@@ -70,9 +76,13 @@ export class PlayArea extends Component {
     }
 
     render() {
-        if (this.Timer === 60){
-            console.log('test');
-            return <Redirect to={{pathname: "/End"}}/>
+        if (this.Timer > 60){
+            if (this.correct.length > this.state.LowScore){
+                return <Redirect to={{pathname:"/End", state:{word: this.correct, skip: this.skipped, newS: true}}} />
+            }
+            else{
+                return <Redirect to={{pathname: "/End", state:{word: this.correct, skip: this.skipped, newS: false}}}/>
+            }
         }
         return (
             <div id="pArea">

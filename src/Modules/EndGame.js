@@ -1,20 +1,24 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import NewScore from './NewScore';
 
 
-export default function EndGame() {
-    let x = localStorage.getItem("Correct").split(",");
-    let y = localStorage.getItem("Skip").split(",");
+export default function EndGame(props) {
+    console.log(props.location.state.word);
+
     return (
         <div>
-            {React.createElement('h1', null, `Words Correct: ${x.length}`)}
+            {props.location.state.newS ? (<NewScore Correct={props.location.state.word} Skip={props.location.state.skip} />): (
+                console.log('fail')
+            )}
+            {React.createElement('h1', null, `Words Correct: ${props.location.state.word.length}`)}
             <ul>
-                {x.map(item => 
+                {props.location.state.word.map(item => 
                     <li key={item}>{item}</li>)}
             </ul>
-            {React.createElement('h1', null, `Words Skipped: ${y.length}`)}
+            {React.createElement('h1', null, `Words Skipped: ${props.location.state.skip.length}`)}
             <ul>
-                {y.map(item =>
+                {props.location.state.skip.map(item =>
                     <li key={item}>{item}</li>)}
             </ul>
             <Link to="/">

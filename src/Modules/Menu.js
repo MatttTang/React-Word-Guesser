@@ -22,6 +22,11 @@ export default function Menu() {
                 <button className="mainButtons">
                     Secret Move
                 </button>
+                <Link to='/LeaderBoard'>
+                    <button className="mainButtons">
+                        Leader Board
+                    </button>
+                </Link>
             </div>
         </motion.div>
     )

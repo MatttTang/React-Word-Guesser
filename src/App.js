@@ -22,6 +22,8 @@ import Menu from './Modules/Menu';
 import Instructions from './Modules/instruc';
 import PlayArea from './Modules/PlayArea';
 import EndGame from './Modules/EndGame';
+import Leader from './Modules/Score';
+import NewS from './Modules/NewScore';
 import { motion } from 'framer-motion';
 
 export class App extends Component {
@@ -71,7 +73,6 @@ export class App extends Component {
   }
 
   render() {
-    document.title = "Word Test";
     return (
       <Router>
         <div className="App">
@@ -101,7 +102,9 @@ export class App extends Component {
               <Route exact path="/" component={Menu} />
               <Route exact path="/Instructions" component={Instructions} />
               <Route exact path="/Play" component={PlayArea} />
-              <Route exact path="/End" component={EndGame} />
+              <Route exact path="/End" render={(props) => <EndGame {...props}/>} />
+              <Route exact path="/LeaderBoard" component={Leader} />
+              <Route exact path="/NewScore" render={(props) => <NewS {...props}/>} />
             </Switch>
           </motion.div>
         </div>
