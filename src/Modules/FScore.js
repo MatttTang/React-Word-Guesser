@@ -29,7 +29,6 @@
 //         }
 //     });
 // }
-
 function FetchScores(client){
     console.log('test');
     let params = {

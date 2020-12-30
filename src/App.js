@@ -26,6 +26,8 @@ import Leader from './Modules/Score';
 import NewS from './Modules/NewScore';
 import { motion } from 'framer-motion';
 
+require('dotenv').config();
+
 export class App extends Component {
   state = {
     showMenu: true,
@@ -73,8 +75,8 @@ export class App extends Component {
   }
 
   render() {
-    console.log(process.env.AK);
-    console.log(process.env.SAK);
+    console.log(process.env.REACT_APP_AK);
+    console.log(process.env.REACT_APP_SAK);
     return (
       <Router>
         <div className="App">
