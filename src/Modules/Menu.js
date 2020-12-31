@@ -19,9 +19,11 @@ export default function Menu() {
                         Instuctions
                     </button>
                 </Link>
-                <button className="mainButtons">
-                    Secret Move
-                </button>
+                <Link to="/Secret">
+                    <button className="mainButtons">
+                        Secret Move
+                    </button>
+                </Link>
                 <Link to='/LeaderBoard'>
                     <button className="mainButtons">
                         Leader Board

@@ -22,7 +22,6 @@ export default class Score extends Component {
             )
         }
         else{
-            console.log(this.state.scores);
             return(
                 <div>
                     <SinScore Scores={this.state.scores} />
