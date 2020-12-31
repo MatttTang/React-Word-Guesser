@@ -75,8 +75,6 @@ export class App extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_AK);
-    console.log(process.env.REACT_APP_SAK);
     return (
       <Router>
         <div className="App">
