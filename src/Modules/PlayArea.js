@@ -31,7 +31,7 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.Timer > 5){
+            if (this.Timer > 60){
                 //this.props.Finish();
                 // localStorage.setItem('Correct', this.correct);
                 // localStorage.setItem('Skip', this.skipped);
@@ -77,7 +77,7 @@ export class PlayArea extends Component {
     }
 
     render() {
-        if (this.Timer > 5){
+        if (this.Timer > 60){
             if (this.correct.length > this.state.LowScore.correct){
                 return <Redirect to={{pathname:"/End", state:{word: this.correct, skip: this.skipped, newS: true, lowest: this.state.LowScore}}} />
             }
