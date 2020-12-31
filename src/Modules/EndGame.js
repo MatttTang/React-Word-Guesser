@@ -4,11 +4,9 @@ import NewScore from './NewScore';
 
 
 export default function EndGame(props) {
-    console.log(props.location.state.word);
-
     return (
         <div>
-            {props.location.state.newS ? (<NewScore Correct={props.location.state.word} Skip={props.location.state.skip} />): (
+            {props.location.state.newS ? (<NewScore Correct={props.location.state.word} Skip={props.location.state.skip} Lowest={props.location.state.lowest}/>): (
                 console.log('fail')
             )}
             {React.createElement('h1', null, `Words Correct: ${props.location.state.word.length}`)}

@@ -14,7 +14,7 @@ export class PlayArea extends Component {
     state = {
         WordInfo: null,
         Word: "T",
-        LowScore: 0
+        LowScore: null
         //Timer: 0
     }
     correct = [];
@@ -22,7 +22,8 @@ export class PlayArea extends Component {
     Timer = 0;
     componentDidMount(){
         let x = new DBLink();
-        FetchScores(x).then(ret => this.setState({LowScore: ret.Items[ret.Items.length - 1].correct}));
+        // FetchScores(x).then(ret => this.setState({LowScore: ret.Items[ret.Items.length - 1].correct}));
+        FetchScores(x).then(res => this.setState({LowScore: res.Items[res.Items.length - 1]}));
         // let w = RW.GenerateWord();
         // GD.GDef(w).then((res) =>{
         //     this.setState({WordInfo: res, Word: w});
@@ -30,7 +31,7 @@ export class PlayArea extends Component {
         this.GenerateNewWord();
         //this.interval = setInterval(() => this.setState({ Timer: this.state.Timer + 1}), 1000);
         this.interval = setInterval(() =>{
-            if (this.Timer > 60){
+            if (this.Timer > 5){
                 //this.props.Finish();
                 // localStorage.setItem('Correct', this.correct);
                 // localStorage.setItem('Skip', this.skipped);
@@ -76,9 +77,9 @@ export class PlayArea extends Component {
     }
 
     render() {
-        if (this.Timer > 60){
-            if (this.correct.length > this.state.LowScore){
-                return <Redirect to={{pathname:"/End", state:{word: this.correct, skip: this.skipped, newS: true}}} />
+        if (this.Timer > 5){
+            if (this.correct.length > this.state.LowScore.correct){
+                return <Redirect to={{pathname:"/End", state:{word: this.correct, skip: this.skipped, newS: true, lowest: this.state.LowScore}}} />
             }
             else{
                 return <Redirect to={{pathname: "/End", state:{word: this.correct, skip: this.skipped, newS: false}}}/>

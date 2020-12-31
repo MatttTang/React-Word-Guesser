@@ -2,12 +2,12 @@ var AWS = require('aws-sdk');
 //const { DocumentClient } = require('aws-sdk/clients/dynamodb');
 const {v4: uuidv4} = require('uuid');
 
-function PostS(name, correct, skip){
+function PostS(name, correct, skip, lowest){
     AWS.config.update({
         region: "us-west-2",
         endpoint: "https://dynamodb.us-west-2.amazonaws.com",
-        accessKeyId: "AKIA5IDC47PMWLKMNFP7",
-        secretAccessKey: "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"
+        accessKeyId: process.env.REACT_APP_AK,
+        secretAccessKey: process.env.REACT_APP_SAK
     });
 
     var params = null;
@@ -40,15 +40,34 @@ function PostS(name, correct, skip){
         }
     }
     console.log("adding Item");
+    console.log(lowest);
+    console.log(lowest.placeHold);
+    console.log(lowest.id);
     dClient.put(params, function(err, data){
         if (err){
-            console.err(err);
+            console.error(err);
         }
         else{
             console.log('Item Added');
         }
-    })
+    });
+    let delParams = {
+        TableName: "wordTab",
+        Key:{
+            "placeHold": 0,
+            "id": lowest.id
+        }
+    };
 
+    console.log("deleting lowest");
+    dClient.delete(delParams, function(err, data){
+        if (err){
+            console.error(err);
+        }
+        else{
+            console.log('Item Deleted');
+        }
+    });
 }
 
 module.exports.PostS = PostS;

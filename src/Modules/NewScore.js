@@ -9,7 +9,7 @@ export default function NewScore(props) {
             <input id="nameInput" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
             <button onClick={function(){
                 console.log(props.Skip);
-                PostS(pName, props.Correct, props.Skip);
+                PostS(pName, props.Correct, props.Skip, props.Lowest);
             }}>
                 Click
             </button>
