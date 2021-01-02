@@ -1,5 +1,21 @@
 section{
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 0px;
+}
+.ScoreDetails{
+    border-style: solid;
+    border-color: red;
+}
+.ScoreNames{
+    position: relative;
+    left: 5%;
+}
+.ScoreHolder{
+    padding-top: 10px;
+    position: absolute;
+    width: 70vw;
+}
+#returnButton{
+    position: absolute;
+    bottom: 15%;
 }
