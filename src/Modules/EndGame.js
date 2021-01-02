@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 import NewScore from './NewScore';
 
 
@@ -19,11 +18,11 @@ export default function EndGame(props) {
                 {props.location.state.skip.map(item =>
                     <li key={item}>{item}</li>)}
             </ul>
-            <Link to="/">
+            {/* <Link to="/">
                 <button className="mainButtons">
                     Return
                 </button>
-            </Link>
+            </Link> */}
         </div>
     )
 }

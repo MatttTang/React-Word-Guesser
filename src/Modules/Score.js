@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
-import SinScore from './InScore'
 import {DBLink} from './DBLink'
 import {FetchScores} from './FScore'
+import '../styler/Scores.css'
+import ScoreDetail from './ScoreDetail'
+import {Link} from 'react-router-dom'
 
 export default class Score extends Component {
     state = {
-        scores: null
+        scores: null,
+        displayScore: null,
+        display: false
     }
 
     componentDidMount(){
@@ -23,8 +27,22 @@ export default class Score extends Component {
         }
         else{
             return(
-                <div>
-                    <SinScore Scores={this.state.scores} />
+                <div style={{display: 'inline'}}>
+                    {/* <SinScore Scores={this.state.scores} /> */}
+                    {this.state.scores.map(item =>
+                        <h1 onMouseEnter={(e) => this.setState({displayScore: item, display: true})} key={item.id}>{item.name}</h1>)}
+
+                    <section>
+                        {this.state.display ? (<ScoreDetail Score={this.state.displayScore} />) : <h1>none</h1>}
+                    </section>
+                    
+                    <Link to="/">
+                        <button className="mainButtons">
+                            Return
+                        </button>
+                    </Link>
+
+
                 </div>
             )
         }

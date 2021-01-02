@@ -38,7 +38,7 @@ export class App extends Component {
               Welcome To The Word Guesser
           </motion.h1>
 
-          <motion.div className="mBody"
+          <motion.div id="mainBody" className="mBody"
             initial={{y: -500, opacity: 0}}
             animate={{y: 0, opacity: 1}}
             transition={{duration: 0.5}}>
