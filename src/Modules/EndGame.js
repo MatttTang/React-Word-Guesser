@@ -1,10 +1,18 @@
 import React from 'react'
 import NewScore from './NewScore';
+import {Link} from 'react-router-dom'
+import {motion} from 'framer-motion';
+import PV from './pageVariants'
 
 
 export default function EndGame(props) {
+    console.log('test');
     return (
-        <div>
+        <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={PV}>
             {props.location.state.newS ? (<NewScore Correct={props.location.state.word} Skip={props.location.state.skip} Lowest={props.location.state.lowest}/>): (
                 console.log('fail')
             )}
@@ -18,11 +26,13 @@ export default function EndGame(props) {
                 {props.location.state.skip.map(item =>
                     <li key={item}>{item}</li>)}
             </ul>
-            {/* <Link to="/">
-                <button className="mainButtons">
-                    Return
-                </button>
-            </Link> */}
-        </div>
+            {props.location.state.newS ? (null) : (
+                <Link to="/">
+                    <button className="mainButtons">
+                        Return
+                    </button>
+                </Link>
+            )}
+        </motion.div>
     )
 }

@@ -1,8 +1,10 @@
 import React from 'react'
+import {motion} from 'framer-motion'
 
 export default function ScoreDetail(props) {
     return (
-        <div className="ScoreDetails">
+        <motion.div className="ScoreDetails"
+            animate={{scale: 1.1}}>
             <h1>{props.Score.name}</h1>
             <p>Number of Words Correct: {props.Score.correct}</p>
             <p>Words Correct:</p>
@@ -15,6 +17,6 @@ export default function ScoreDetail(props) {
                 {props.Score.swords.values.map(item =>
                     <li key={item}>{item}</li>)}
             </ul>
-        </div>
+        </motion.div>
     )
 }

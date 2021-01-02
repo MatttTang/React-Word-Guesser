@@ -5,6 +5,7 @@ import '../styler/Scores.css'
 import ScoreDetail from './ScoreDetail'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
+import PV from './pageVariants'
 
 export default class Score extends Component {
     state = {
@@ -28,7 +29,11 @@ export default class Score extends Component {
         }
         else{
             return(
-                <div>
+                <motion.div
+                    initial="initial"
+                    animate="in"
+                    exit="out"
+                    variants={PV}>
                     <div className="ScoreHolder" style={{display: 'inline'}}>
                         <section>
                             {this.state.display ? (<ScoreDetail Score={this.state.displayScore} />) : <h1>none</h1>}
@@ -39,22 +44,13 @@ export default class Score extends Component {
                                 whileHover={{scale: 1.1}}>
                                 {this.state.scores.indexOf(item) + 1}. {item.name}
                             </motion.h1>)}
-                        {/* <section>
-                            {this.state.display ? (<ScoreDetail Score={this.state.displayScore} />) : <h1>none</h1>}
-                        </section> */}
-                        
-                        {/* <Link to="/">
-                            <button className="mainButtons">
-                                Return
-                            </button>
-                        </Link> */}
                     </div>
                     <Link to="/">
                             <button id="returnButton" className="mainButtons">
                                 Return
                             </button>
                     </Link>
-                </div>
+                </motion.div>
             )
         }
     }

@@ -5,7 +5,7 @@ export default function Timer() {
     const [Time, setTime] = useState(0);
     useEffect(() =>{
         const interval = setInterval(() =>{
-            if (Time < 60){
+            if (Time < 5){
                 setTime(Time => Time + 1);;
             }
         }, 1000);

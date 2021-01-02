@@ -1,9 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {motion} from 'framer-motion';
+import PV from './pageVariants';
 
 export default function instruc() {
     return (
-        <div>
+        <motion.div
+            initial="initial"
+            animate="in"
+            exit="out"
+            variants={PV}>
             <h1>
                 Instructions
             </h1>
@@ -16,6 +22,6 @@ export default function instruc() {
                     Return
                 </button>
             </Link>
-        </div>
+        </motion.div>
     )
 }

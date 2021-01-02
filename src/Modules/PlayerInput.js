@@ -28,19 +28,6 @@ export default function PlayerInput(props) {
         props.NewWord();
     }
 
-    // if (input.length >= props.TrueWord.length){
-    //     inp.classList.add("wClass");
-    //     setInput('');
-    //     inp.value = '';
-    // }
-
-    // if (input.endsWith(' ')){
-    //     setInput('');
-    //     props.Skip(props.TrueWord);
-    //     inp.value = '';
-    //     props.NewWord();
-    // }
-
     return (
         <div>
             <Hint Letters={input} Word={props.TrueWord}/>

@@ -27,6 +27,7 @@ function PostS(name, correct, skip, lowest){
         }
     }
     else{
+        let noSkip = ["None"];
         params={
             TableName: "wordTab",
             Item:{
@@ -34,7 +35,7 @@ function PostS(name, correct, skip, lowest){
                 "id": uuidv4(),
                 "correct": correct.length,
                 "cwords": dClient.createSet(correct),
-                "swords": "None",
+                "swords": dClient.createSet(noSkip),
                 "name": name
             }
         }

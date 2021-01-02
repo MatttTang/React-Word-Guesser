@@ -1,13 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import { motion } from 'framer-motion';
+import PV from './pageVariants';
 
 export default function Menu() {
     return(
         <motion.div className="M1"
-            initial={{x: -800}}
-            animate={{x: 0}}
-            transition={{duration: 1}}>
+            variants={PV}
+            initial="initial"
+            animate="in"
+            exit="out">
             <div className="content">
                 <Link to='/Play'>
                     <button className="mainButtons">
