@@ -25,7 +25,7 @@ export class PlayArea extends Component {
         FetchScores(x).then(res => this.setState({LowScore: res.Items[res.Items.length - 1]}));
         this.GenerateNewWord();
         this.interval = setInterval(() =>{
-            if (this.Timer > 5){
+            if (this.Timer > 60){
                 clearInterval(this.interval);
                 this.forceUpdate();
             }
@@ -59,7 +59,7 @@ export class PlayArea extends Component {
     }
 
     render() {
-        if (this.Timer > 5){
+        if (this.Timer > 60){
             if (this.correct.length > this.state.LowScore.correct){
                 // return (<Redirect to={{pathname:"/End", state:{word: this.correct, skip: this.skipped, newS: true, lowest: this.state.LowScore}}} />)
                 return(
