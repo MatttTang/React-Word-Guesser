@@ -1,5 +1,4 @@
 function FetchScores(client){
-    console.log('test');
     let params = {
         TableName: "wordTab",
         IndexName: "placeHold-correct-index",
@@ -22,7 +21,6 @@ function FetchScores(client){
                 myReject();
             }
             else{
-                console.log("success");
                 myResolve(data);
             }
         });

@@ -13,4 +13,6 @@ html, body, .App{
 }
 a{
     text-decoration: none;
+    display: block;
+    width: 1%;
 }

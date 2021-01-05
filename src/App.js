@@ -12,7 +12,6 @@ import Secret from './Modules/SecretMove';
 
 function App(){
   const location = useLocation();
-  console.log(location)
     return (
         <div className="App">
           <h1 className="bTitle">

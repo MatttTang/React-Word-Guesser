@@ -1,0 +1,27 @@
+#nameInput{
+    margin: 5%;
+    height: 2em;
+    font-size: 2em;
+}
+.NewScoreForm{
+    text-align: center;
+}
+#Congrats{
+    padding-top: 5vh;
+}
+
+#scoreSubmit{
+    display: block;
+    position: absolute;
+    left: 35%;
+    background-color: black;
+    border-style: none;
+    width: 30%;
+    height: 10%;
+    color:white;
+    font-size: 150%;
+}
+
+#nameLabel{
+    font-size: 2em;
+}

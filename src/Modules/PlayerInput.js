@@ -31,7 +31,7 @@ export default function PlayerInput(props) {
     return (
         <div>
             <Hint Letters={input} Word={props.TrueWord}/>
-            <input autoComplete='off' id="userInput" type="text" onChange={(e) => setInput(e.target.value)}/>
+            <input autoFocus autoComplete='off' id="userInput" type="text" onChange={(e) => setInput(e.target.value)}/>
         </div>
     )
 }

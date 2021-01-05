@@ -13,10 +13,12 @@ export default function ScoreDetail(props) {
                     <li key={item}>{item}</li>)}
             </ul>
             <p>Words Skipped:</p>
-            <ul>
-                {props.Score.swords.values.map(item =>
-                    <li key={item}>{item}</li>)}
-            </ul>
+            <div id="skippedWords">
+                <ul>
+                    {props.Score.swords.values.map(item =>
+                        <li key={item}>{item}</li>)}
+                </ul>
+            </div>
         </motion.div>
     )
 }
