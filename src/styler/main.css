@@ -29,7 +29,7 @@ body{
     position: relative;
 }
 .content{
-    top: 250px;
+    top: 10vh;
     position: relative;
     text-align: center;
     margin-top: 10%;
