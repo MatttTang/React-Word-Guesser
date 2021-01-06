@@ -23,7 +23,7 @@ section{
 }
 #returnButton{
     position: absolute;
-    bottom: 15%;
+    bottom: 5vh;
 }
 #skippedWords{
     height: 20vh;

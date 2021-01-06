@@ -38,11 +38,13 @@ export default class Score extends Component {
                             {this.state.display ? (<ScoreDetail Score={this.state.displayScore} />) : <h1>none</h1>}
                         </section>
                         {/* <SinScore Scores={this.state.scores} /> */}
+                        <div style={{height: '80vh'}}>
                         {this.state.scores.map(item =>
                             <motion.h1 className="ScoreNames" onMouseEnter={(e) => this.setState({displayScore: item, display: true})} key={item.id}
                                 whileHover={{scale: 1.1}}>
                                 {this.state.scores.indexOf(item) + 1}. {item.name}
                             </motion.h1>)}
+                        </div>
                     </div>
                     <Link to="/">
                             <button id="returnButton" className="mainButtons">
