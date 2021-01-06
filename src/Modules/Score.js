@@ -23,7 +23,6 @@ export default class Score extends Component {
         if (this.state.scores === null){
             return(
                 <div>
-                    <h1>loading</h1>
                 </div>
             )
         }

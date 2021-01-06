@@ -1,16 +1,18 @@
 section{
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0vw;
+    top: 5vh;
 }
 .ScoreDetails{
     border-style: solid;
     border-color: red;
+    width: 25vw;
+    height: 50vh;
 }
 .ScoreNames{
     position: relative;
     left: 5%;
-    width: 75%;
+    width: 35%;
 }
 .ScoreHolder{
     padding-top: 10px;
@@ -22,7 +24,7 @@ section{
     bottom: 15%;
 }
 #skippedWords{
-    height: 10vh;
+    height: 20vh;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -38,4 +40,9 @@ section{
 
 ::-webkit-scrollbar-thumb{
     background: #3A3030
+}
+#correctWords{
+    height: 10vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }

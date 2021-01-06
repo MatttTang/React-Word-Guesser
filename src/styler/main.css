@@ -3,6 +3,9 @@
 body{
     background-color: #45C0FE;
 }
+.Loading{
+    background-color: rgba(0, 0, 0, 0.8);
+}
 .bTitle{
     font-family: 'Press Start 2P', cursive;
     text-align: center;
@@ -31,3 +34,4 @@ body{
     text-align: center;
     margin-top: 10%;
 }
+

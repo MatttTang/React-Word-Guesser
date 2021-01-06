@@ -14,9 +14,9 @@ function App(){
   const location = useLocation();
     return (
         <div className="App">
-          <h1 className="bTitle">
-              Welcome To The Word Guesser
-          </h1>
+            <h1 className="bTitle">
+                Welcome To The Word Guesser
+            </h1>
 
           <div id="mainBody" className="mBody">
           <AnimatePresence exitBeforeEnter>
