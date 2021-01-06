@@ -5,7 +5,7 @@ export default function ScoreDetail(props) {
     return (
         <motion.div className="ScoreDetails"
             animate={{scale: 1.1}}>
-            <div style={{textAlign: 'center'}}>
+            <div style={{textAlign: 'center', height: '8vh'}}>
                 <h1>{props.Score.name}</h1>
                 <p>Number of Words Correct: {props.Score.correct}</p>
             </div>
