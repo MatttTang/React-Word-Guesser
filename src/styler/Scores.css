@@ -8,6 +8,8 @@ section{
     border-color: red;
     width: 25vw;
     height: 50vh;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 .ScoreNames{
     position: relative;
@@ -25,8 +27,6 @@ section{
 }
 #skippedWords{
     height: 20vh;
-    overflow: hidden;
-    overflow-y: scroll;
 }
 ::-webkit-scrollbar{
     width: 0.3vw;
@@ -43,6 +43,4 @@ section{
 }
 #correctWords{
     height: 10vh;
-    overflow: hidden;
-    overflow-y: scroll;
 }
