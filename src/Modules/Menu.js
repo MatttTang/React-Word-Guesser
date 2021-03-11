@@ -18,7 +18,7 @@ export default function Menu() {
                 </Link>
                 <Link to="/Instructions">
                     <button className="mainButtons">
-                        Instuctions
+                        Instructions
                     </button>
                 </Link>
                 <Link to="/Secret">

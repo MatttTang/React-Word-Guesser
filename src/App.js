@@ -21,7 +21,7 @@ function App(){
           <div id="mainBody" className="mBody">
           <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.key}>
-                <Route exact path="/" component={Menu} />
+                <Route exact path="/" component={Menu}/>
                 <Route exact path="/Instructions" component={Instructions} />
                 <Route exact path="/Play" component={PlayArea} />
                 {/* <Route exact path="/End" component={EndGame} render={(props) => <EndGame {...props}/>} /> */}
